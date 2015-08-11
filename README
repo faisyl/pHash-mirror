@@ -1,0 +1,8 @@
+# pHash-mirror
+
+In order to build: (multiple iterations)
+* autoheader
+* automake --add-missing
+* aclocal && libtoolize --force && autoreconf
+* ./configure --enable-video-hash=no --enable-audio-hash=no
+* make

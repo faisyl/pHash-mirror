@@ -1,7 +1,7 @@
-prefix=/homes/ycli/data-bank/GIFs/preprocess/dedup/pHash-0.9.6/build
+prefix=/usr/local
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
-includedir=/homes/ycli/data-bank/GIFs/preprocess/dedup/pHash-0.9.6/cimag/CImg-1.6.5_pre072115
+includedir=${prefix}/include
 
 Name: pHash
 Description: Perceptual hashing library
