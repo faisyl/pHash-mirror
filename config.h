@@ -13,9 +13,6 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
 
-/* Define to 1 if you have the `avcodec' library (-lavcodec). */
-#define HAVE_LIBAVCODEC 1
-
 /* Define to 1 if you have the `avformat' library (-lavformat). */
 #define HAVE_LIBAVFORMAT 1
 
@@ -64,8 +61,7 @@
 /* configure with video hash */
 #define HAVE_VIDEO_HASH 1
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */

@@ -101,8 +101,8 @@ AC_PROG_LIBTOOL
 
 AC_SUBST([LIBTOOLS_DEPS])
 
-LDFLAGS="$LDFLAGS -L/usr/local/lib"
-CPPFLAGS="$CPPFLAGS -I/usr/local/include"
+LDFLAGS="$LDFLAGS -L/usr/local/lib -L/usr/lib"
+CPPFLAGS="$CPPFLAGS -I/usr/local/include -I/usr/include"
 
 AC_DEFUN([AC_CHECK_CIMG], [
 AC_CHECK_HEADER([CImg.h], [found_cimg="y"], [found_cimg="n"])
@@ -122,12 +122,7 @@ fi])
 AC_DEFUN([AC_CHECK_FFMPEG],
 [
 AC_MSG_CHECKING([whether FFmpeg is present])
-AC_CHECK_LIB([avcodec], [avcodec_alloc_frame], [], [AC_MSG_ERROR([
-
-*** libavcodec not found.
-You need FFmpeg. Get it at <http://ffmpeg.org/>])])
-
-AC_CHECK_LIB([avutil], [av_log_set_level], [], [AC_MSG_ERROR([
+AC_CHECK_LIB([avutil], [av_frame_alloc], [], [AC_MSG_ERROR([
 
 *** libavutil not found.
 You need FFmpeg. Get it at <http://ffmpeg.org/>])])

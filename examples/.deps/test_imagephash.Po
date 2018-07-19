@@ -1,9 +1,8 @@
 test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
- /usr/include/fortify/stdio.h /usr/include/stdio.h \
- /usr/include/features.h /usr/include/bits/alltypes.h \
- /usr/include/fortify/fortify-headers.h /usr/include/dirent.h \
- /usr/include/errno.h /usr/include/bits/errno.h \
- /usr/include/c++/6.4.0/vector /usr/include/c++/6.4.0/bits/stl_algobase.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/bits/alltypes.h /usr/include/dirent.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/c++/6.4.0/vector \
+ /usr/include/c++/6.4.0/bits/stl_algobase.h \
  /usr/include/c++/6.4.0/x86_64-alpine-linux-musl/bits/c++config.h \
  /usr/include/c++/6.4.0/x86_64-alpine-linux-musl/bits/os_defines.h \
  /usr/include/c++/6.4.0/x86_64-alpine-linux-musl/bits/cpu_defines.h \
@@ -44,46 +43,36 @@ test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/6.4.0/bits/vector.tcc /usr/include/c++/6.4.0/algorithm \
  /usr/include/c++/6.4.0/utility /usr/include/c++/6.4.0/bits/stl_relops.h \
  /usr/include/c++/6.4.0/bits/stl_algo.h /usr/include/c++/6.4.0/cstdlib \
- /usr/include/fortify/stdlib.h /usr/include/stdlib.h \
- /usr/include/alloca.h /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/stdlib.h /usr/include/alloca.h \
  /usr/include/c++/6.4.0/bits/algorithmfwd.h \
  /usr/include/c++/6.4.0/bits/stl_heap.h \
  /usr/include/c++/6.4.0/bits/stl_tempbuf.h \
  /usr/include/c++/6.4.0/bits/uniform_int_dist.h \
  /usr/include/c++/6.4.0/limits ../src/pHash.h ../pHash-config.h \
- /usr/include/limits.h /usr/include/c++/6.4.0/math.h \
- /usr/include/c++/6.4.0/cmath /usr/include/math.h \
- /usr/include/fortify/unistd.h /usr/include/unistd.h \
- /usr/include/bits/posix.h /usr/include/sys/types.h /usr/include/endian.h \
- /usr/include/stdint.h /usr/include/bits/stdint.h \
- /usr/include/fortify/sys/select.h /usr/include/sys/select.h \
+ /usr/include/limits.h /usr/include/bits/limits.h \
+ /usr/include/c++/6.4.0/math.h /usr/include/c++/6.4.0/cmath \
+ /usr/include/math.h /usr/include/unistd.h /usr/include/bits/posix.h \
+ /usr/include/sys/types.h /usr/include/endian.h /usr/include/stdint.h \
+ /usr/include/bits/stdint.h /usr/include/sys/select.h \
  /usr/include/sys/sysmacros.h /usr/include/sys/stat.h \
  /usr/include/bits/stat.h /usr/include/sys/mman.h \
  /usr/include/bits/mman.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
- /usr/include/fortify/string.h /usr/include/string.h \
- /usr/include/fortify/strings.h /usr/include/strings.h \
- /usr/include/c++/6.4.0/stdlib.h /usr/include/CImg.h \
- /usr/include/c++/6.4.0/cstdio /usr/include/c++/6.4.0/cstdarg \
- /usr/include/stdarg.h /usr/include/c++/6.4.0/cstring \
- /usr/include/c++/6.4.0/cfloat /usr/include/float.h \
- /usr/include/bits/float.h /usr/include/c++/6.4.0/climits \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/6.4.0/stdlib.h ../CImg.h /usr/include/c++/6.4.0/cstdio \
+ /usr/include/c++/6.4.0/cstdarg /usr/include/stdarg.h \
+ /usr/include/c++/6.4.0/cstring /usr/include/c++/6.4.0/climits \
  /usr/include/c++/6.4.0/ctime /usr/include/time.h /usr/include/sys/time.h \
- /usr/include/fnmatch.h \
- /usr/lib/gcc/x86_64-alpine-linux-musl/6.4.0/include/omp.h \
- /usr/include/pthread.h /usr/include/sched.h /usr/include/sys/param.h \
- /usr/include/sys/resource.h /usr/include/bits/resource.h
+ /usr/include/fnmatch.h /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/sys/param.h /usr/include/sys/resource.h \
+ /usr/include/bits/resource.h
 
 /usr/include/stdc-predef.h:
-
-/usr/include/fortify/stdio.h:
 
 /usr/include/stdio.h:
 
 /usr/include/features.h:
 
 /usr/include/bits/alltypes.h:
-
-/usr/include/fortify/fortify-headers.h:
 
 /usr/include/dirent.h:
 
@@ -183,15 +172,9 @@ test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
 
 /usr/include/c++/6.4.0/cstdlib:
 
-/usr/include/fortify/stdlib.h:
-
 /usr/include/stdlib.h:
 
 /usr/include/alloca.h:
-
-/usr/include/limits.h:
-
-/usr/include/bits/limits.h:
 
 /usr/include/c++/6.4.0/bits/algorithmfwd.h:
 
@@ -209,13 +192,13 @@ test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
 
 /usr/include/limits.h:
 
+/usr/include/bits/limits.h:
+
 /usr/include/c++/6.4.0/math.h:
 
 /usr/include/c++/6.4.0/cmath:
 
 /usr/include/math.h:
-
-/usr/include/fortify/unistd.h:
 
 /usr/include/unistd.h:
 
@@ -228,8 +211,6 @@ test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
 /usr/include/stdint.h:
 
 /usr/include/bits/stdint.h:
-
-/usr/include/fortify/sys/select.h:
 
 /usr/include/sys/select.h:
 
@@ -247,17 +228,13 @@ test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
 
 /usr/include/bits/fcntl.h:
 
-/usr/include/fortify/string.h:
-
 /usr/include/string.h:
-
-/usr/include/fortify/strings.h:
 
 /usr/include/strings.h:
 
 /usr/include/c++/6.4.0/stdlib.h:
 
-/usr/include/CImg.h:
+../CImg.h:
 
 /usr/include/c++/6.4.0/cstdio:
 
@@ -266,12 +243,6 @@ test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
 /usr/include/stdarg.h:
 
 /usr/include/c++/6.4.0/cstring:
-
-/usr/include/c++/6.4.0/cfloat:
-
-/usr/include/float.h:
-
-/usr/include/bits/float.h:
 
 /usr/include/c++/6.4.0/climits:
 
@@ -282,8 +253,6 @@ test_imagephash.o: test_imagephash.cpp /usr/include/stdc-predef.h \
 /usr/include/sys/time.h:
 
 /usr/include/fnmatch.h:
-
-/usr/lib/gcc/x86_64-alpine-linux-musl/6.4.0/include/omp.h:
 
 /usr/include/pthread.h:
 
