@@ -57,7 +57,6 @@ using namespace cimg_library;
 
 #ifndef __GLIBC__
 #include <sys/param.h>
-#include <sys/sysctl.h>
 #endif
 
 using namespace std;

@@ -1,1 +1,29 @@
-# dummy
+ph_fft.lo: ph_fft.c /usr/include/stdc-predef.h ph_fft.h \
+ /usr/include/math.h /usr/include/features.h /usr/include/bits/alltypes.h \
+ /usr/include/complex.h /usr/include/fortify/stdlib.h \
+ /usr/include/stdlib.h /usr/include/alloca.h /usr/include/limits.h \
+ /usr/include/bits/limits.h /usr/include/fortify/fortify-headers.h
+
+/usr/include/stdc-predef.h:
+
+ph_fft.h:
+
+/usr/include/math.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/alltypes.h:
+
+/usr/include/complex.h:
+
+/usr/include/fortify/stdlib.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/alloca.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/limits.h:
+
+/usr/include/fortify/fortify-headers.h:

@@ -39,11 +39,11 @@ void vfinfo_close(VFInfo  *vfinfo){
 int ReadFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList, unsigned int low_index, unsigned int hi_index)
 {
         //target pixel format
-	PixelFormat ffmpeg_pixfmt;
+	AVPixelFormat ffmpeg_pixfmt;
 	if (st_info->pixelformat == 0)
-	    ffmpeg_pixfmt = PIX_FMT_GRAY8;
+	    ffmpeg_pixfmt = AV_PIX_FMT_GRAY8;
 	else 
-	    ffmpeg_pixfmt = PIX_FMT_RGB24;
+	    ffmpeg_pixfmt = AV_PIX_FMT_RGB24;
 
 	st_info->next_index = low_index;
 
@@ -67,7 +67,7 @@ int ReadFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList, unsigned int low_
 	    // Find the video stream
 	    for(i=0; i<st_info->pFormatCtx->nb_streams; i++)
 	    {
-		if(st_info->pFormatCtx->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO) 
+		if(st_info->pFormatCtx->streams[i]->codecpar->codec_type==AVMEDIA_TYPE_VIDEO) 
 	        {
 		    st_info->videoStream=i;
 		    break;
@@ -100,30 +100,31 @@ int ReadFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList, unsigned int low_
         AVFrame *pFrame;
 
 	// Allocate video frame
-	pFrame=avcodec_alloc_frame();
+	pFrame=av_frame_alloc();
 	if (pFrame==NULL)
 	    return -1;
 
 	// Allocate an AVFrame structure
-	AVFrame *pConvertedFrame = avcodec_alloc_frame();
+	AVFrame *pConvertedFrame = av_frame_alloc();
 	if(pConvertedFrame==NULL)
 	  return -1;
 		
 	uint8_t *buffer;
 	int numBytes;
 	// Determine required buffer size and allocate buffer
-	numBytes=avpicture_get_size(ffmpeg_pixfmt, st_info->width,st_info->height);
+	numBytes=av_image_get_buffer_size(ffmpeg_pixfmt, st_info->width,st_info->height,1);
 	buffer=(uint8_t *)av_malloc(numBytes*sizeof(uint8_t));
 	if (buffer == NULL)
 	    return -1;
 
-	avpicture_fill((AVPicture *)pConvertedFrame,buffer,ffmpeg_pixfmt,st_info->width,st_info->height);
+	//avpicture_fill((AVPicture *)pConvertedFrame,buffer,ffmpeg_pixfmt,st_info->width,st_info->height);
+	av_image_fill_arrays(pConvertedFrame->data,pConvertedFrame->linesize,buffer,ffmpeg_pixfmt,st_info->width,st_info->height,1);
 		
 	int frameFinished;
 	int size = 0;
 	
 
-        int channels = ffmpeg_pixfmt == PIX_FMT_GRAY8 ? 1 : 3;
+        int channels = ffmpeg_pixfmt == AV_PIX_FMT_GRAY8 ? 1 : 3;
 
 	AVPacket packet;
 	int result = 1;
@@ -160,7 +161,7 @@ int ReadFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList, unsigned int low_
 		  }    
 		  st_info->current_index++;
 	      }
-	      av_free_packet(&packet);
+	      av_packet_unref(&packet);
 	  }
 	}
 
@@ -189,11 +190,11 @@ int ReadFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList, unsigned int low_
 
 int NextFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList)
 {
-        PixelFormat ffmpeg_pixfmt;
+        AVPixelFormat ffmpeg_pixfmt;
 	if (st_info->pixelformat == 0)
-	    ffmpeg_pixfmt = PIX_FMT_GRAY8;
+	    ffmpeg_pixfmt = AV_PIX_FMT_GRAY8;
         else 
-	    ffmpeg_pixfmt = PIX_FMT_RGB24;
+	    ffmpeg_pixfmt = AV_PIX_FMT_RGB24;
 
 	if (st_info->pFormatCtx == NULL)
 	{
@@ -221,7 +222,7 @@ int NextFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList)
 		// Find the video stream
 		for(i=0; i< st_info->pFormatCtx->nb_streams; i++)
 		{
-			if(st_info->pFormatCtx->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO) 
+			if(st_info->pFormatCtx->streams[i]->codecpar->codec_type==AVMEDIA_TYPE_VIDEO) 
 			{
 				st_info->videoStream=i;
 				break;
@@ -254,10 +255,10 @@ int NextFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList)
 	AVFrame *pFrame;
 
 	// Allocate video frame
-	pFrame=avcodec_alloc_frame();
+	pFrame=av_frame_alloc();
 		
 	// Allocate an AVFrame structure
-	AVFrame *pConvertedFrame = avcodec_alloc_frame();
+	AVFrame *pConvertedFrame = av_frame_alloc();
 	if(pConvertedFrame==NULL){
 	  return -1;
 	}
@@ -265,13 +266,14 @@ int NextFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList)
 	uint8_t *buffer;
 	int numBytes;
 	// Determine required buffer size and allocate buffer
-	numBytes=avpicture_get_size(ffmpeg_pixfmt, st_info->width,st_info->height);
+	numBytes=av_image_get_buffer_size(ffmpeg_pixfmt, st_info->width,st_info->height,1);
 	buffer=(uint8_t *)av_malloc(numBytes*sizeof(uint8_t));
 	if (buffer == NULL){
 	    return -1;
 	}
 
-	avpicture_fill((AVPicture *)pConvertedFrame,buffer,ffmpeg_pixfmt,st_info->width,st_info->height);
+	//avpicture_fill((AVPicture *)pConvertedFrame,buffer,ffmpeg_pixfmt,st_info->width,st_info->height);
+	av_image_fill_arrays(pConvertedFrame->data,pConvertedFrame->linesize,buffer,ffmpeg_pixfmt,st_info->width,st_info->height,1);
 		
 	int frameFinished;
 	int size = 0;
@@ -287,7 +289,7 @@ int NextFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList)
 			break;
 		if(packet.stream_index == st_info->videoStream) {
 			
-		int channels = ffmpeg_pixfmt == PIX_FMT_GRAY8 ? 1 : 3;
+		int channels = ffmpeg_pixfmt == AV_PIX_FMT_GRAY8 ? 1 : 3;
  		AVPacket avpkt;
                 av_init_packet(&avpkt);
                 avpkt.data = packet.data;
@@ -318,7 +320,7 @@ int NextFrames(VFInfo *st_info, CImgList<uint8_t> *pFrameList)
 				st_info->current_index++;
 		    }
     	  }
-    	        av_free_packet(&packet);
+    	        av_packet_unref(&packet);
 	}
 	
 	av_free(buffer);
@@ -377,7 +379,7 @@ long GetNumberVideoFrames(const char *file)
 	int videoStream=-1;
 	for(unsigned int i=0; i<pFormatCtx->nb_streams; i++)
 	{
-	     if(pFormatCtx->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO) 
+	     if(pFormatCtx->streams[i]->codecpar->codec_type==AVMEDIA_TYPE_VIDEO) 
 	     {
 		    videoStream=i;
 		    break;
@@ -422,7 +424,7 @@ float fps(const char *filename)
 	int videoStream=-1;
 	for(unsigned int i=0; i<pFormatCtx->nb_streams; i++)
 	{
-		     if(pFormatCtx->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO) 
+		     if(pFormatCtx->streams[i]->codecpar->codec_type==AVMEDIA_TYPE_VIDEO) 
 		     {
 			    videoStream=i;
 			    break;

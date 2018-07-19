@@ -2,7 +2,7 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* configure with audio hash */
-/* #undef HAVE_AUDIO_HASH */
+#define HAVE_AUDIO_HASH 1
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
@@ -14,25 +14,25 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the `avcodec' library (-lavcodec). */
-/* #undef HAVE_LIBAVCODEC */
+#define HAVE_LIBAVCODEC 1
 
 /* Define to 1 if you have the `avformat' library (-lavformat). */
-/* #undef HAVE_LIBAVFORMAT */
+#define HAVE_LIBAVFORMAT 1
 
 /* Define to 1 if you have the `avutil' library (-lavutil). */
-/* #undef HAVE_LIBAVUTIL */
+#define HAVE_LIBAVUTIL 1
 
 /* Define to 1 if you have the `mpg123' library (-lmpg123). */
-/* #undef HAVE_LIBMPG123 */
+#define HAVE_LIBMPG123 1
 
 /* Define to 1 if you have the `samplerate' library (-lsamplerate). */
-/* #undef HAVE_LIBSAMPLERATE */
+#define HAVE_LIBSAMPLERATE 1
 
 /* Define to 1 if you have the `sndfile' library (-lsndfile). */
-/* #undef HAVE_LIBSNDFILE */
+#define HAVE_LIBSNDFILE 1
 
 /* Define to 1 if you have the `swscale' library (-lswscale). */
-/* #undef HAVE_LIBSWSCALE */
+#define HAVE_LIBSWSCALE 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -62,7 +62,7 @@
 #define HAVE_UNISTD_H 1
 
 /* configure with video hash */
-/* #undef HAVE_VIDEO_HASH */
+#define HAVE_VIDEO_HASH 1
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
@@ -82,6 +82,9 @@
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "phash"
+
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
 
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "0.9.6"

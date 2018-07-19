@@ -1,9 +1,9 @@
 /* pHash-config.h.  Generated from pHash-config.h.in by configure.  */
 /* configure with audio hash */
-/* #undef HAVE_AUDIO_HASH */
+#define HAVE_AUDIO_HASH 1
 
 /* configure with video hash */
-/* #undef HAVE_VIDEO_HASH */
+#define HAVE_VIDEO_HASH 1
 
 /* configure with image hash */
 #define HAVE_IMAGE_HASH 1
