@@ -365,7 +365,7 @@ long GetNumberVideoFrames(const char *file)
 {
     long nb_frames = 0L;
 	AVFormatContext *pFormatCtx;
-    av_log_set_level(AV_LOG_QUIET);
+    	av_log_set_level(AV_LOG_VERBOSE);
 	av_register_all();
 	// Open video file
 	if (avformat_open_input(&pFormatCtx, file, NULL, NULL))
