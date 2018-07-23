@@ -383,6 +383,9 @@ TxtHashPoint* ph_texthash(const char *filename, int *nbpoints);
  **/
 TxtMatch* ph_compare_text_hashes(TxtHashPoint *hash1, int N1, TxtHashPoint *hash2, int N2, int *nbmatches);
 
+/* Free up memory allocated within pHash - needed for ctypes access ftom python */
+void ph_freemem(void *);
+
 /* random char mapping for textual hash */
 
 static const ulong64 textkeys[256] = {
